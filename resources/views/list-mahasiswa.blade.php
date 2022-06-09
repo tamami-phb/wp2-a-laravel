@@ -15,23 +15,32 @@
 
 <a href="/form-tambah" class="btn btn-primary mt-3">Tambah</a>
 
-<table class="mt-2 table" border=1>
+<table class="mt-2 table table-striped">
+    <thead>
     <tr>
         <th scope="col">NIM</th>
         <th>NAMA</th>
         <th>KELAS</th>
+        <th>OPSI</th>
     </tr>
+    </thead>
+    <tbody>
 @forelse($data as $row)
     <tr>
         <td>{{ $row->nim }}</td>
         <td>{{ $row->nama }}</td>
         <td>{{ $row->kelas }}</td>
+        <td>
+            <a href="/hapus/{{ $row->nim }}" class="btn btn-danger">Hapus</a>
+            <a href="/form-ubah/{{ $row->nim }}" class="btn btn-warning">Ubah</a>
+        </td>
     </tr>
 @empty
     <tr>
         <td colspan="3">Datanya kosong</td>
     </tr>
 @endforelse
+    </tbody>
 </table>
 </div>
 </body>
